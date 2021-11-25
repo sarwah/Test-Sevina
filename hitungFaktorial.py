@@ -1,18 +1,16 @@
 from config import *
 import time as t
 from selenium import webdriver
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
 
 
 driver = webdriver.Chrome(lokasi_chrome_diver)
 driver.maximize_window()
 
 def hitungFaktorialInputInteger():
-    print("Perhitungan Faktorial dengan menginputkan integer \n")
+    print("TC : Perhitungan Faktorial dengan menginputkan integer \n")
     input = 3
     faktorial = 1
 
@@ -29,11 +27,12 @@ def hitungFaktorialInputInteger():
         t.sleep(3)
     except Exception as e:
         print(e)
+        return("Result: Gagal \n")
     else:
-        return("Sukses \n")
+        return("Result :Sukses \n")
 
 def hitungFaktorialInputChar():
-    print("Perhitungan Faktorial dengan menginputkan char \n")
+    print("TC : Perhitungan Faktorial dengan menginputkan char \n")
     input = 'a'
 
     try:
@@ -46,11 +45,12 @@ def hitungFaktorialInputChar():
         t.sleep(3)
     except Exception as e:
         print(e)
+        return("Result: Gagal \n")
     else:
-        return("Sukses \n")
+        return("Result: Sukses \n")
 
 def hitungFaktorialTanpaInputField():
-    print("Perhitungan Faktorial tanpa menginputkan field \n")
+    print("TC : Perhitungan Faktorial tanpa menginputkan field \n")
 
     try:
         driver.get(target_server)
@@ -61,11 +61,12 @@ def hitungFaktorialTanpaInputField():
         t.sleep(3)
     except Exception as e:
         print(e)
+        return("Result: Gagal \n")
     else:
-        return("Sukses \n")
+        return("Result: Sukses \n")
 
 def hitungFaktorialInputInteger4Digit():
-    print("Perhitungan Faktorial dengan menginputkan integer 4 digit \n")
+    print("TC : Perhitungan Faktorial dengan menginputkan 4 digit integer \n")
     input = 1000
     faktorial = 1
 
@@ -82,15 +83,13 @@ def hitungFaktorialInputInteger4Digit():
         t.sleep(3)
     except Exception as e:
         print(e)
+        return("Result: Gagal \n")
     else:
-        return("Sukses \n")
+        return("Result: Sukses \n")
 
-def main():
+if __name__=="__main__":
     print(hitungFaktorialInputInteger())
     print(hitungFaktorialInputChar())
     print(hitungFaktorialTanpaInputField())
     print(hitungFaktorialInputInteger4Digit())
-
-if __name__=="__main__":
-    main()
     driver.quit()
